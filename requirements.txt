@@ -1,0 +1,18 @@
+# Faithful-MedRAG demo dependencies
+#
+# The DEMO runs on numpy alone -- every heavy component (MedCPT, BGE-reranker,
+# DeBERTa-NLI, Qwen/Llama via vLLM, the 23.9M-doc PubMed index) is represented
+# by a dependency-free, same-interface stand-in so the pipeline logic runs
+# offline in seconds.
+numpy>=1.24
+
+# ---------------------------------------------------------------------------
+# For the REAL thesis run, add (not needed for the demo):
+# torch
+# transformers            # DeBERTa-NLI verifier, cross-encoder reranker
+# sentence-transformers   # MedCPT / BGE embeddings
+# rank-bm25               # or the built-in BM25Retriever
+# faiss-cpu               # dense index over PubMed
+# vllm                    # serve Qwen2.5-7B / Llama-3.1-8B
+# ragas                   # faithfulness metric
+# datasets                # MIRAGE / PubMedQA / BioASQ / MedQA loaders
